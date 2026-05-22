@@ -1,0 +1,34 @@
+name: xiwei_app
+description: 熹微之萍 · 律动灯 多屏控制 App（ESP32-S3 + ESP32-WROVER）
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # 状态管理
+  flutter_riverpod: ^2.5.1
+
+  # 通讯
+  web_socket_channel: ^2.4.5   # WebSocket 直连
+  mqtt_client: ^10.2.1         # MQTT 兜底
+  multicast_dns: ^0.3.2+6      # mDNS 自发现 lrp-s3.local
+
+  # 本地存储
+  shared_preferences: ^2.2.2
+
+  # 工具
+  collection: ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
