@@ -1,22 +1,4 @@
 pluginManagement {
-    def flutterSdkPath = {
-        def properties = new Properties()
-        def file = new File(settingsDir, "local.properties")
-        if (file.exists()) {
-            file.withReader("UTF-8") { reader -> properties.load(reader) }
-        }
-        def sdkPath = properties.getProperty("flutter.sdk")
-        if (sdkPath == null) {
-            sdkPath = System.getenv("FLUTTER_ROOT")
-        }
-        if (sdkPath == null) {
-            throw new GradleException("Flutter SDK not found.")
-        }
-        return sdkPath
-    }()
-
-    includeBuild("${flutterSdkPath}/packages/flutter_tools/gradle")
-
     repositories {
         google()
         mavenCentral()
@@ -25,6 +7,11 @@ pluginManagement {
 }
 
 plugins {
+    // 明确告诉云端：我们使用 8.1.0 版本的安卓应用插件
+    id "com.android.application" version "8.1.0" apply false
+    // 明确声明 Kotlin 语言插件版本
+    id "org.jetbrains.kotlin.android" version "1.8.22" apply false
+    // 绑定 Flutter 官方构建工具
     id "dev.flutter.flutter-gradle-plugin" version "1.0.0" apply false
 }
 
